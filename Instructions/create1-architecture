@@ -162,9 +162,33 @@ poetry run uvicorn app.main:app --reload --port 8000
 cd frontend
 npm run dev
 
+Si tout fonctionne fait un commit
+Fais un commit avec le message "chore: migre le backend vers Poetry" et push sur main.
 
 
 ------------------------------------------------------------------------------------------------------
+
+J'ai créer une landing-page avec claude design mais je dois l'intégrer dans mon projet 
+Share et export le code pour que claude se connecte au mcp de claude design.
+enuiste sur la structure on a une page avec tout alors que avant on avait un dossier avec toutes les pages components aussi mais c'était avant.
+voici le prompt pour intégrer la landing page
+prompt
+***************************************************************
+Use the claude_design MCP (https://api.anthropic.com/v1/design/mcp, auth via /design-login) to import this project:
+https://claude.ai/design/p/976b0a3e-dcb0-47fd-9864-c6b9ae5b9bb3?file=Landing+IA.dc.html
+Implement: Landing IA.dc.html
+
+Le projet utilise Vite + vanilla JavaScript, PAS React, PAS de JSX.
+
+Organise frontend/src/ en structure feature-based :
+- features/landing/ pour la landing page (fichier principal, ex: Landing.js, son CSS, et un sous-dossier components/ si besoin de composants réutilisables pour cette page)
+- Garde une structure similaire pour toute future feature (ex: features/dashboard/ plus tard)
+
+Intègre la landing page importée dans features/landing/Landing.js.
+Ne remplace pas index.html ni main.js existants — dis-moi comment tu comptes les relier à cette nouvelle structure avant d'écrire les fichiers.
+******************************************************************
+
+
 
 
 
