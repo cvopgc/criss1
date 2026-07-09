@@ -2,19 +2,18 @@
 
 FastAPI backend, développement local uniquement (pas de Docker).
 
+Gestion des dépendances et de l'environnement virtuel via [Poetry](https://python-poetry.org/).
+
 ## Installation
 
 ```
-python -m venv .venv
-.venv\Scripts\activate        # Windows
-source .venv/bin/activate     # macOS/Linux
-pip install -e .
+poetry install
 ```
 
 ## Lancer en dev (avec reload)
 
 ```
-uvicorn app.main:app --reload --port 8000
+poetry run uvicorn app.main:app --reload --port 8000
 ```
 
 - Swagger UI : http://localhost:8000/docs

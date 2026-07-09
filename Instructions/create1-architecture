@@ -122,9 +122,49 @@ C'est exactement l'objectif du walking skeleton : rien d'utile encore, mais la s
 donc on commit maintenant:
 Fais un commit avec le message "feat: walking skeleton fonctionnel (backend health + frontend fetch)" et push sur main.
 
+----------------------------------------------------------------------------------------------------
+on change par poetry  une surcouche qui est plus 2026
+macos/linux
+curl -sSL https://install.python-poetry.org | python3 -
+windows
+(Invoke-WebRequest -Uri https://install.python-poetry.org -UseBasicParsing).Content | py -
+
+regarde s'il est installer mais pas encore dans une variable d'environnement
+Test-Path "$env:APPDATA\Python\Scripts\poetry.exe"
+Ajoute dans PATH permanent
+[Environment]::SetEnvironmentVariable("Path", $env:Path + ";$env:APPDATA\Python\Scripts", "User")
+regarde
+poetry --version
+Tout redémarrer
+
+On migre prompt1Migre le backend de venv/pip vers Poetry :
+1. Supprime le dossier .venv existant et le fichier pyproject.toml actuel s'il existe déjà sous l'ancien format
+2. Initialise Poetry dans backend/ avec poetry init (nom du projet, version 0.1.0, description courte)
+3. Ajoute les dépendances avec poetry add fastapi uvicorn
+4. Vérifie que l'app démarre bien avec poetry run uvicorn app.main:app --reload
+5. Mets à jour backend/README.md avec les nouvelles commandes Poetry (poetry install, poetry run uvicorn ...)
+6. Ajoute .venv/ au .gitignore si ce n'est pas déjà fait (Poetry peut créer son venv dans le dossier du projet selon la config)
+
+claude a créer un environnement virtuel en dehors du projet plutot que dans me .venv local  mais 
+reste cohérent avec .gitignore
+prompt
+Ajoute un poetry.toml dans backend/ avec virtualenvs.in-project = true, puis relance poetry install pour recréer le venv localement dans backend/.venv
+
+ENsuite relnce les deux serveurs à la main dans deux terminaux séparés
+CMD
+cd /d D:\CLAUDE\workspace-criss1
+POWERSHELL
+cd D:\CLAUDE\workspace-criss1
+
+cd backend
+poetry run uvicorn app.main:app --reload --port 8000
+
+cd frontend
+npm run dev
 
 
 
+------------------------------------------------------------------------------------------------------
 
 
 
