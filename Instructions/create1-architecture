@@ -47,3 +47,99 @@ EOF
 
 Github
 ------
+création du repository /criss1  
+Laisse-le complètement vide : ne coche PAS "Add a README", ne choisis PAS de .gitignore, 
+ne choisis PAS de licence.
+C'est le point important — si tu coches une de ces options, GitHub crée un premier commit 
+sur son côté, et quand tu voudras pousser ton historique local, git va refuser 
+(branches divergentes) et tu devras gérer un merge inutile pour un projet qui vient de naître.
+ En le créant vide, ton push initial se passe sans friction.
+
+2. Relie ton repo local au repo distant et pousse :
+git remote add origin https://github.com/TON-USER/mon-projet.git
+git remote add origin https://github.com/cvopgc/criss1.git
+git branch -M main
+git push -u origin main
+
+j'ai relié mon repo local au distant
+
+Format de message recommandé (convention Conventional Commits, très utilisée en pro) :
+
+feat: ajoute route health backend
+feat: affiche health check dans le frontend
+fix: corrige le proxy vite
+chore: config initiale
+
+
+
+Coder avec Claude Coder
+------------------------
+/init   (avec yes 2 pour la session)
+
+******************************************************************************************
+prompt1 de débutant
+-------------------
+Crée un walking skeleton minimal, pour développement local uniquement (pas de Docker, pas de nginx pour l'instant) :
+
+Backend (backend/) :
+- FastAPI avec une seule route GET /api/health qui renvoie {"status": "ok"}
+- Swagger accessible sur /docs
+- pyproject.toml avec fastapi, uvicorn
+- Un README backend/README.md avec la commande pour lancer en dev avec reload
+
+Frontend (frontend/) :
+- Vite + vanilla JS, une page qui fetch /api/health et affiche le résultat à l'écran
+- Configure le proxy Vite pour rediriger /api vers http://localhost:8000 (évite les soucis CORS en dev)
+
+Ne crée AUCUN Dockerfile, AUCUN docker-compose, AUCUNE base de données, AUCUNE authentification. C'est un skeleton de développement local, rien de plus.
+
+
+******************************************************************************************
+
+http://localhost:8000/
+{
+  "detail": "Not Found"
+}car pas de route pour le moment
+
+http://localhost:8000/api/health
+{"status":"ok"}
+
+http://localhost:8000/docs
+docs swagger
+
+http://localhost:5173/
+vitejs
+
+C'est parfait — ton walking skeleton est complet et fonctionnel. Récapitulons ce que tu viens de valider :
+✅ Backend FastAPI qui tourne en local avec reload
+✅ Route /api/health qui répond
+✅ Swagger auto-généré sur /docs
+✅ Frontend Vite avec hot reload
+✅ Le frontend fetch le backend via le proxy Vite (API status: ok affiché) — donc pas de souci CORS
+✅ Toute la chaîne bout-en-bout fonctionne
+C'est exactement l'objectif du walking skeleton : rien d'utile encore, mais la structure complète qui communique de bout en bout. Tout ce que tu ajouteras à partir de maintenant vient se greffer dessus sans tout reconstruire.
+
+donc on commit maintenant:
+Fais un commit avec le message "feat: walking skeleton fonctionnel (backend health + frontend fetch)" et push sur main.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
