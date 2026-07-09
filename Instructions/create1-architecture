@@ -1,0 +1,49 @@
+
+
+Architecture
+------------
+git --version
+python3 --version
+node --version
+docker --version
+(Sinon installe)
+
+Créer le squelette de dossiers et initialiser git--------------
+workspace-criss1/
+
+1. créer les dossiers et initialiser git:
+-----------------------------------------
+> git init
+mkdir mon-projet && cd mon-projet
+git init
+mkdir -p backend/app/api backend/app/core backend/tests
+mkdir -p frontend/src/components
+mkdir -p .github/workflows
+
+---------------------------------------
+Crée un .gitignore
+cat > .gitignore << 'EOF'
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# Node
+node_modules/
+dist/
+
+# Env & secrets
+.env
+*.local
+
+# Divers
+.DS_Store
+EOF
+--------------------------------------------
+
+
+
+
+Github
+------
