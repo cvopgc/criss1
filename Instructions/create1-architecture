@@ -187,6 +187,16 @@ Organise frontend/src/ en structure feature-based :
 Intègre la landing page importée dans features/landing/Landing.js.
 Ne remplace pas index.html ni main.js existants — dis-moi comment tu comptes les relier à cette nouvelle structure avant d'écrire les fichiers.
 ******************************************************************
+Bon il a demandé l'accès a claude-designe et il fallait le réorienter de comment il peut
+intégrer la nouvelle page:
+prompt
+Je veux une app multi-pages Vite classique, pas une fusion sur la même page :
+- Garde index.html et main.js intacts
+- Crée un nouveau fichier landing.html à la racine de frontend/, qui charge features/landing/Landing.js
+- Ajoute un simple lien <a href="/landing.html">Découvrir</a> dans index.html, sans rien modifier d'autre du contenu existant
+- Vérifie que vite.config.js est configuré pour reconnaître les deux pages comme points d'entrée (rollupOptions.input)
+-----------------------------------------------------------------------------------------------------------
+
 
 
 
